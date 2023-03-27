@@ -54,7 +54,7 @@ else:
 if st.button('Predict'):
     try:
         test_x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        prediction = model_load.predict(fe_data(test_x).reshape(28, 28, 1))    
+        prediction = model_load.predict(fe_data(test_x).reshape(1, 28, 28))    
         predictions = np.argmax(prediction, axis=1)
         output_text = predictions[0]
         font_size = "36px"
@@ -63,12 +63,13 @@ if st.button('Predict'):
         pass
     try:
         img_array = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
-        img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
-        img_array.reshape(1, 28, 28)
-        predict = model_load.predict(img_array.reshape(1, 28, 28))    
-        predicts = np.argmax(predict, axis=1)
-        output_text = predicts[0]
-        font_size = "36px"
-        st.markdown("<h3 style='text-align: left; color: black; font-size: {};'>{}</h3>".format(font_size, output_text), unsafe_allow_html=True)
+        st.image(img_array )
+#         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
+#         img_array.reshape(1, 28, 28)
+#         predict = model_load.predict(img_array.reshape(1, 28, 28))    
+#         predicts = np.argmax(predict, axis=1)
+#         output_text = predicts[0]
+#         font_size = "36px"
+#         st.markdown("<h3 style='text-align: left; color: black; font-size: {};'>{}</h3>".format(font_size, output_text), unsafe_allow_html=True)
     except:
         pass
