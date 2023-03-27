@@ -66,7 +66,7 @@ if st.button('Predict'):
         st.image(img_array)
         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
 #         st.write(img_array)
-        predict = model_load.predict(img_array.reshape(1, 28, 28))    
+        predict = model_load.predict(fe_data(img_array).reshape(1, 28, 28))    
         predicts = np.argmax(predict, axis=1)
         output_text = predicts[0]
         font_size = "36px"
