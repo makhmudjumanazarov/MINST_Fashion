@@ -62,15 +62,17 @@ if st.button('Predict'):
     except:
         pass
     try:
-        img_array = cv2.cvtColor(img_array, cv2.COLOR_BGR2GRAY)
+        img_array = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
         st.image(img_array)
         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
-        st.write(img_array)
         st.write(img_array.shape)
         img_array = img_array.reshape(1, 28, 28)
-        st.write(img_array)
         st.write(img_array.shape)
-#         predict = model_load.predict(img_array.reshape(1, 28, 28))    RGB
+        st.write(img_array)
+        img_array = img_array.transpose((1, 2, 0))
+        st.write(img_array.shape)
+        st.write(img_array)
+#         predict = model_load.predict(img_array.reshape(1, 28, 28))    
 #         predicts = np.argmax(predict, axis=1)
 #         output_text = predicts[0]
 #         font_size = "36px"
