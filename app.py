@@ -21,7 +21,7 @@ labels = ['T-shirt/top','Trouser','Pullover','Dress','Coat', 'Sandal', 'Shirt', 
 
 st.title('Fashion MNIST Image Recognizer')
 st.write('classes')
-st.write(labels)
+st.write(labels, horizontal = True)
 genre = st.radio(
     "choose one of the two",
 ('Draw by hand', 'Upload image'))
