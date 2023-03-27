@@ -67,7 +67,7 @@ if st.button('Predict'):
         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
         st.write(img_array)
         st.write(img_array.shape)
-        img_array.reshape(1, 28, 28)
+        img_array = img_array.reshape(1, 28, 28)
         st.write(img_array)
         st.write(img_array.shape)
 #         predict = model_load.predict(img_array.reshape(1, 28, 28))    
