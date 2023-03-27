@@ -64,7 +64,7 @@ if st.button('Predict'):
     try:
         img_array = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
         st.image(img_array)
-        st.write(img_array)
+        st.write(img_array.shape)
 #         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
 #         img_array.reshape(1, 28, 28)
 #         predict = model_load.predict(img_array.reshape(1, 28, 28))    
