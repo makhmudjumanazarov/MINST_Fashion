@@ -20,6 +20,7 @@ def get_predictions_load(X_test):
     return predictions
 
 model_load = load_model('model')
+labels = ['T-shirt/top','Trouser','Pullover','Dress','Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 st.title('MNIST Digit Recognizer')
 genre = st.radio(
@@ -60,7 +61,7 @@ if st.button('Predict'):
 #         st.title(predictions[0])
         output_text = predictions[0]
         font_size = "36px"
-        st.markdown("<h3 style='text-align: left; color: black; font-size: {};'>{}</h3>".format(font_size, output_text), unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left; color: black; font-size: {};'>{}</h3>".format(font_size, labels[output_text]), unsafe_allow_html=True)
     except:
         pass
     try:
