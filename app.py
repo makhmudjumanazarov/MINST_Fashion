@@ -44,7 +44,6 @@ if genre == 'Draw by hand':
     if canvas_result.image_data is not None:
         img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28))
         rescaled = cv2.resize(img, (SIZE, SIZE), interpolation=cv2.INTER_NEAREST)
-#         st.image(rescaled)
 else:
     img_file_buffer = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
     if img_file_buffer is not None:
@@ -65,11 +64,10 @@ if st.button('Predict'):
         img_array = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
         st.image(img_array)
         img_array = cv2.resize(img_array.astype('uint8'), (28, 28))
-#         st.write(img_array)
         predict = model_load.predict(fe_data(img_array).reshape(1, 28, 28))    
         predicts = np.argmax(predict, axis=1)
         output_text = predicts[0]
-        font_size = "36px"
+        font_size = "24px"
         st.markdown("<h3 style='text-align: left; color: black; font-size: {};'>{}</h3>".format(font_size, labels[output_text]), unsafe_allow_html=True)
     except:
         pass
