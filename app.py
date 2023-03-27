@@ -54,7 +54,7 @@ else:
 if st.button('Predict'):
     try:
         test_x = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        prediction = model_load.predict(fe_data(test_x).reshape(1, 28, 28))    
+        prediction = model_load.predict(fe_data(test_x).reshape(28, 28, 1))    
         predictions = np.argmax(prediction, axis=1)
         output_text = predictions[0]
         font_size = "36px"
